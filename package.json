@@ -1,0 +1,30 @@
+{
+  "name": "uncafedepapel-monolith",
+  "version": "1.0.0",
+  "description": "App web para Un Café de Papel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teilhux/uncafedepapel-monolith.git"
+  },
+  "keywords": [
+    "pyme",
+    "cafe",
+    "gestion"
+  ],
+  "author": "teilhux",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/teilhux/uncafedepapel-monolith/issues"
+  },
+  "homepage": "https://github.com/teilhux/uncafedepapel-monolith#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^4.8.2"
+  }
+}
