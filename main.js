@@ -1,3 +1,4 @@
-import { App } from "./app/app.js";
+import { App } from './app/app.js';
 const app = new App();
-console.log(app.run());
+document.addEventListener('DOMContentLoaded', app.run);
+window.addEventListener('hashchange', app.reload);

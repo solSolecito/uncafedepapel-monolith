@@ -1,6 +1,16 @@
+import { Router } from '../api/router.js';
+
 export class App {
-    constructor(){}
-    run():string{
-        return 'this is hust a test'
+    private router:Router;
+
+    constructor(){
+        this.router = new Router();
+    }
+
+    run():void{
+        this.router.load(false);
+    }
+    reload():void{
+        this.router.load(false);
     }
 }
