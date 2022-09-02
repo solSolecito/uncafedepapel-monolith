@@ -10,7 +10,7 @@ export class Router {
         // El router carga la página completa
         // const user = firebase.auth().currentUser;
         const url = window.location.hash;
-        const container = document.body;
+        const container = document.getElementById('root');
         console.log(container);
         let content;
         if(user){
@@ -34,7 +34,7 @@ export class Router {
                 return;
             }
         }
-        builder(content, container)
+        container ? builder(content, container) : console.log('No se encontró donde renderizar');
     }
 }
 
