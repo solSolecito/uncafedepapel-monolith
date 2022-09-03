@@ -16,7 +16,7 @@ export class Router {
         if(user){
             switch(url){
                 case '#/':
-                    const page = new HomePage('a', [], 'b');
+                    const page = new HomePage('a', new Map(), 'b');
                     content = [page.getBlueprints()];
                     break;
                 default:
@@ -26,7 +26,7 @@ export class Router {
         } else {
             switch(url){
                 case '#/':
-                    const page = new HomePage('a', [], 'b');
+                    const page = new HomePage('a', new Map(), 'b');
                     content = [page.getBlueprints()];
                     break;
                 default:

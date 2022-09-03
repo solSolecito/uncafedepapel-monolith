@@ -1,8 +1,29 @@
+import { Block, blockStructure } from './block.js';
+
+interface mapInterface {
+  src: string,
+}
+
+interface iconInterface {
+  src: string,
+  altText: string,
+  href: string
+}
+
+class IconHref extends Block {
+  constructor(src:string, href:string, altText:string){
+    super('p', [], {});
+    const content = [
+      new Block('img', '', {src: src}),
+    ]
+  }
+}
+
 class Footer extends Block {
-  constructor(){
+  constructor(contact:string[], rrss:iconInterface[], map:mapInterface){
     super('footer', [], {});
     const content = [
-      new ContactBlock(),
+      new ContactBlock(contact, rrss, map),
       new LicenceBlock()
     ];
     this.setContent(content);
@@ -10,32 +31,28 @@ class Footer extends Block {
 }
 
 class ContactBlock extends Block {
-  constructor(contact:string[], rrss:iconHref[]){
+  constructor(contact:string[], rrss:iconInterface[], map:mapInterface){
     super('div', [], {});
     const content = [
-      new Block('div', contact.map((line:string) => {
-        new Block('p', line, { class:'contact-line'} );
-      }), {}),
-      new Block('img', '', { src: map.src} ),
-      new Block( 'div', rrss.map((rrssLine:iconHref) => {
-        new Block( 'p', new Block('img')
-      }))
+      new Block(
+        'div', 
+        contact.map( (line:string) => {
+          return new Block('p', line, { class:'contact-line'} );
+        }), 
+        {}
+      ),
+      new Block( 
+        'div', 
+        rrss.map( (rrssLine:iconInterface) => {
+        return new IconHref(rrssLine.src, rrssLine.href, rrss.altText);
+      }), {})
     ];
     this.setContent(content);
   }
 }
 
-class ImgBlock extends Block {
-  constructor(src:string, altText:string = "No hay texto alterno disponible"){
-    super('img', '', {src, altText})
-  }
-}
-
-class IconHref extends Block {
-  constructor(src:string, href:string, text:string){
-    super('p', [], {});
-    const content = [
-      new Block('img', '', {src: src}),
-    ]
+class LicenceBlock extends Block{
+  constructor(){
+    super('div', [], {})
   }
 }

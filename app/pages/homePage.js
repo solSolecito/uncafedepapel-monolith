@@ -3,7 +3,7 @@ import { Page } from './page.js';
 export class HomePage extends Page {
     constructor(name, attributes, title) {
         const content = [];
-        content.push(new Header([]));
+        content.push(new Header(new Map()));
         super(name, content, attributes, title);
     }
     getBlueprints() {

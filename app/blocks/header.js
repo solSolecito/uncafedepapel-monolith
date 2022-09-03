@@ -3,7 +3,4 @@ export class Header extends Block {
     constructor(attributes) {
         super('header', 'HEADER', attributes);
     }
-    afterRender() {
-    }
-    ;
 }

@@ -7,13 +7,13 @@ export class Router {
         // El router carga la página completa
         // const user = firebase.auth().currentUser;
         const url = window.location.hash;
-        const container = document.body;
+        const container = document.getElementById('root');
         console.log(container);
         let content;
         if (user) {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('a', [], 'b');
+                    const page = new HomePage('a', new Map(), 'b');
                     content = [page.getBlueprints()];
                     break;
                 default:
@@ -24,7 +24,7 @@ export class Router {
         else {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('a', [], 'b');
+                    const page = new HomePage('a', new Map(), 'b');
                     content = [page.getBlueprints()];
                     break;
                 default:
@@ -32,7 +32,7 @@ export class Router {
                     return;
             }
         }
-        builder(content, container);
+        container ? builder(content, container) : console.log('No se encontró donde renderizar');
     }
 }
 /*export const init = () => {

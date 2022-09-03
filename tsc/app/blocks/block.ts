@@ -6,16 +6,24 @@ export interface attribute {
 export interface blockStructure {
     name:string;
     content: blockStructure [] | string;
-    attributes: attribute[];
+    attributes: Map <string, string>;
 }
 
-export abstract class Block {
+export class Block {
+    protected attributes: Map <string, string>;
     constructor(
         protected name:string,
         protected content: Block[] | string,
-        protected attributes:attribute[]
+        atts:Object
     ){
+        this.attributes = new Map();
+        for (const key in atts) {
+            if( atts[key] && typeof atts[key] == 'string'){
+                this.attributes.set(key, atts[key])
+            }
+        }
     }
+
     getBlueprints():blockStructure{
         let content;
         if(typeof this.content == 'string'){
@@ -26,8 +34,19 @@ export abstract class Block {
         return {
             name: this.name,
             content: content,
-            attributes:this.attributes
+            attributes: this.attributes
         }
     };
-    abstract afterRender():void;
+    afterRender():void {
+        //xd
+    };
+    setContent( content:Block[]):void {
+        this.content = content;
+    };
+    addClass( className:string ):void{
+        if( className ){
+            this.attributes.set( 'class', 
+                this.attributes.has('class') ? this.attributes.get('class') + className : className);
+        }
+    }
 }

@@ -5,11 +5,11 @@ import { Page } from './page.js';
 export class HomePage extends Page {
     constructor(
         name: string,
-        attributes: attribute[],
+        attributes: Map<string,string>,
         title: string
     ){
         const content = [];
-        content.push(new Header([]));
+        content.push(new Header(new Map()));
         super( name, content, attributes, title );
     }
     getBlueprints(): blockStructure {

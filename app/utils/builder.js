@@ -2,14 +2,15 @@ export const builder = (blocks, parent) => {
     // El builder se encarga de interpretar las instrucciones y construir los nodos necesarios
     blocks.forEach(block => {
         const container = document.createElement(block.name);
-        block.attributes.forEach(attribute => {
+        for (const keyval of block.attributes.entries()) {
             try {
-                container.setAttribute(attribute.name, attribute.value);
+                console.log(keyval);
+                //container.setAttribute( attribute.name, attribute.value );
             }
             catch (error) {
                 console.log(error);
             }
-        });
+        }
         if (typeof block.content == 'string') {
             container.appendChild(document.createTextNode(block.content));
         }
