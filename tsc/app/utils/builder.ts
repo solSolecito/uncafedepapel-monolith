@@ -3,11 +3,11 @@ import { blockStructure } from '../blocks/block.js';
 export const builder = (blocks:blockStructure[], parent:HTMLElement) => {
     // El builder se encarga de interpretar las instrucciones y construir los nodos necesarios
     blocks.forEach(block => {
+        console.log(block)
         const container = document.createElement(block.name);
         for (const keyval of block.attributes.entries()) {
             try {
-                console.log(keyval)
-                //container.setAttribute( attribute.name, attribute.value );
+                container.setAttribute( keyval[0], keyval[1] );
             } catch (error) {
                 console.log(error)
             }
@@ -17,7 +17,7 @@ export const builder = (blocks:blockStructure[], parent:HTMLElement) => {
             container.appendChild( document.createTextNode(block.content))
         } else {
             builder(block.content, container);
-            parent.appendChild(container);
         }
+        parent.appendChild(container);
     });
 }

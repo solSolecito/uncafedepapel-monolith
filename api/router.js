@@ -8,13 +8,19 @@ export class Router {
         // const user = firebase.auth().currentUser;
         const url = window.location.hash;
         const container = document.getElementById('root');
-        console.log(container);
+        if (!container) {
+            console.log('No se encontró donde renderizar');
+            return;
+        }
+        container.innerHTML = '';
         let content;
         if (user) {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('a', new Map(), 'b');
+                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
+                    page.addTitle();
                     content = [page.getBlueprints()];
+                    console.log(content);
                     break;
                 default:
                     window.location.assign('#/');
@@ -24,15 +30,16 @@ export class Router {
         else {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('a', new Map(), 'b');
+                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
                     content = [page.getBlueprints()];
+                    page.addTitle();
                     break;
                 default:
                     window.location.assign('#/');
                     return;
             }
         }
-        container ? builder(content, container) : console.log('No se encontró donde renderizar');
+        builder(content, container);
     }
 }
 /*export const init = () => {

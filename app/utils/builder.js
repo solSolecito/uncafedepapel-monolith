@@ -1,11 +1,11 @@
 export const builder = (blocks, parent) => {
     // El builder se encarga de interpretar las instrucciones y construir los nodos necesarios
     blocks.forEach(block => {
+        console.log(block);
         const container = document.createElement(block.name);
         for (const keyval of block.attributes.entries()) {
             try {
-                console.log(keyval);
-                //container.setAttribute( attribute.name, attribute.value );
+                container.setAttribute(keyval[0], keyval[1]);
             }
             catch (error) {
                 console.log(error);
@@ -16,7 +16,7 @@ export const builder = (blocks, parent) => {
         }
         else {
             builder(block.content, container);
-            parent.appendChild(container);
         }
+        parent.appendChild(container);
     });
 };

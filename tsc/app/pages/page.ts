@@ -9,5 +9,8 @@ export abstract class Page extends Block {
     ){
         super( name, content, attributes );
     }
+    addTitle():void{
+        document.title = this.title;
+    }
     
 } 

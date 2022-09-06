@@ -3,38 +3,45 @@
 import { HomePage } from '../app/pages/homePage.js';
 import { builder } from '../app/utils/builder.js';
 
-export class Router { 
-    constructor(){}
+export class Router {
+    constructor() { }
 
-    load(user:boolean):void{
+    load(user: boolean): void {
         // El router carga la página completa
         // const user = firebase.auth().currentUser;
         const url = window.location.hash;
         const container = document.getElementById('root');
-        console.log(container);
+        if (!container) {
+            console.log('No se encontró donde renderizar');
+            return
+        }
+        container.innerHTML = '';
         let content;
-        if(user){
-            switch(url){
+        if (user) {
+            switch (url) {
                 case '#/':
-                    const page = new HomePage('a', new Map(), 'b');
+                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
+                    page.addTitle();
                     content = [page.getBlueprints()];
+                    console.log(content);
                     break;
                 default:
                     window.location.assign('#/');
-                return;
+                    return;
             }
         } else {
-            switch(url){
+            switch (url) {
                 case '#/':
-                    const page = new HomePage('a', new Map(), 'b');
+                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
                     content = [page.getBlueprints()];
+                    page.addTitle();
                     break;
                 default:
                     window.location.assign('#/');
-                return;
+                    return;
             }
         }
-        container ? builder(content, container) : console.log('No se encontró donde renderizar');
+        builder(content, container);
     }
 }
 

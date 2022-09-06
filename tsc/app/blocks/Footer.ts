@@ -44,7 +44,7 @@ class ContactBlock extends Block {
       new Block( 
         'div', 
         rrss.map( (rrssLine:iconInterface) => {
-        return new IconHref(rrssLine.src, rrssLine.href, rrss.altText);
+        return new IconHref(rrssLine.src, rrssLine.href, rrssLine.altText);
       }), {})
     ];
     this.setContent(content);

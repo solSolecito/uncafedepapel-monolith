@@ -21,8 +21,6 @@
     "url": "https://github.com/teilhux/uncafedepapel-monolith/issues"
   },
   "homepage": "https://github.com/teilhux/uncafedepapel-monolith#readme",
-  "dependencies": {
-  },
   "devDependencies": {
     "http-server": "^14.1.1",
     "typescript": "^4.8.2"

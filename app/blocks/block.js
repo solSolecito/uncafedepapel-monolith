@@ -23,18 +23,20 @@ export class Block {
             attributes: this.attributes
         };
     }
-    ;
     afterRender() {
         //xd
     }
-    ;
-    setContent(content) {
-        this.content = content;
-    }
-    ;
     addClass(className) {
         if (className) {
             this.attributes.set('class', this.attributes.has('class') ? this.attributes.get('class') + className : className);
         }
+    }
+    // getters
+    getName() {
+        return this.name;
+    }
+    // setters
+    setContent(content) {
+        this.content = content;
     }
 }

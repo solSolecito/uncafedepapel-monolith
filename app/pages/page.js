@@ -4,4 +4,7 @@ export class Page extends Block {
         super(name, content, attributes);
         this.title = title;
     }
+    addTitle() {
+        document.title = this.title;
+    }
 }

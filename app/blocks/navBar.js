@@ -12,7 +12,7 @@ export class NavBar extends Block {
         super('nav', [], { class: 'nav-bar' });
         //Estos botones tienen hipervinculos
         const content = toolList.map((tool) => {
-            new NavListItem(tool.href, tool.name, tool.id, tool.class);
+            return new NavListItem(tool.href, tool.name, tool.id, tool.class);
         });
         this.setContent([new Block('ul', content, {})]);
     }

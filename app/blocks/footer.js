@@ -25,7 +25,7 @@ class ContactBlock extends Block {
                 return new Block('p', line, { class: 'contact-line' });
             }), {}),
             new Block('div', rrss.map((rrssLine) => {
-                return new IconHref(rrssLine.src, rrssLine.href, rrss.altText);
+                return new IconHref(rrssLine.src, rrssLine.href, rrssLine.altText);
             }), {})
         ];
         this.setContent(content);
