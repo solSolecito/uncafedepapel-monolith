@@ -17,7 +17,7 @@ export class Block {
     }
     addClass(className) {
         if (className) {
-            this.attributes.set('class', this.attributes.has('class') ? this.attributes.get('class') + className : className);
+            this.attributes.set('class', this.attributes.has('class') ? this.attributes.get('class') + ' ' + className : className);
         }
     }
     // getters

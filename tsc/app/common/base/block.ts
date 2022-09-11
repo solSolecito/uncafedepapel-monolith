@@ -31,7 +31,7 @@ export class Block {
     addClass(className: string): void {
         if (className) {
             this.attributes.set('class',
-                this.attributes.has('class') ? this.attributes.get('class') + className : className);
+                this.attributes.has('class') ? this.attributes.get('class') + ' ' + className : className);
         }
     }
 

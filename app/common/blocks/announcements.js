@@ -1,4 +1,4 @@
-import { IconTitle } from './iconTitle';
+import { IconTitle } from './iconTitle.js';
 import { Block } from '../base/block.js';
 //Los precios incluyen 
 export class Annoucements extends Block {

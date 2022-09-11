@@ -1,5 +1,5 @@
 import { imgInterface } from '../interfaces/imgInterface.js';
-import { IconTitle } from './iconTitle';
+import { IconTitle } from './iconTitle.js';
 import { Block } from '../base/block.js';
 
 interface interfaceScheduledEvent {

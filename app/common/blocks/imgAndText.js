@@ -1,6 +1,6 @@
 import { ImgBlock } from './imgBlock.js';
 import { Block } from '../base/block.js';
-import { ParagraphBlock } from './paragraphBlock';
+import { ParagraphBlock } from './paragraphBlock.js';
 export class ImgAndTextBlock extends Block {
     constructor(img, text, inverted = false) {
         super('div', [], { class: 'img-and-text' });

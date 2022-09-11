@@ -10,14 +10,14 @@ export const header = {
         {
             name:'Ayuda',
             id:'tool-help',
-            src:'app/assets/icons/help.png',
+            src:'app/assets/icons/24/picture.png',
             class:'tool',
             onclick: () => Modal.open('help'),
         },
         {
-            name:'Accesibilidad',
-            id:'icon-aria',
-            src:'app/assets/icons/aria.png',
+            name:'Configuración',
+            id:'icon-settings',
+            src:'app/assets/icons/24/settings.png',
             class:'tool',
             onclick:() => Modal.open('accesibility'),
         },

@@ -1,6 +1,6 @@
 import { imgInterface } from '../interfaces/imgInterface.js';
 import { Block } from '../base/block.js';
-import { ImgBlock } from './imgBlock';
+import { ImgBlock } from './imgBlock.js';
 
 export class IconTitle extends Block {
     constructor(icon:imgInterface, title:string){
