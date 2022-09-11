@@ -1,5 +1,5 @@
 import { Block } from './block.js';
-import { ImgBlock } from './imgBlock.js';
+import { ImgBlock } from './basics/imgBlock.js';
 
 export class MainTitleBlock extends Block {
     constructor(title:string, src:string, altText:string){

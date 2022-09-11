@@ -1,12 +1,5 @@
+import { IconHref } from './basics/iconHref.js';
 import { Block } from './block.js';
-class IconHref extends Block {
-    constructor(src, href, altText) {
-        super('p', [], {});
-        const content = [
-            new Block('img', '', { src: src }),
-        ];
-    }
-}
 class Footer extends Block {
     constructor(contact, rrss, map) {
         super('footer', [], {});

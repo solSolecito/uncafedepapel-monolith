@@ -1,20 +1,18 @@
-export interface attribute {
-    name: string,
-    value: string
-}
-
 export interface blockStructure {
     name: string;
     content: blockStructure[] | string;
     attributes: Map<string, string>;
+    idEvents: Map<string, ()=>void>;
 }
 
 export class Block {
     protected attributes: Map<string, string>;
+    protected idEvents: Map<string, ()=>void>;
     constructor(
         protected name: string,
         protected content: Block[] | string,
-        atts: Object
+        atts: object = {},
+        events: object = {}
     ) {
         this.attributes = new Map();
         for (const key in atts) {
@@ -22,24 +20,12 @@ export class Block {
                 this.attributes.set(key, atts[key])
             }
         }
-    }
-
-    getBlueprints(): blockStructure {
-        let content;
-        if (typeof this.content == 'string') {
-            content = this.content;
-        } else {
-            content = this.content.map((b: Block) => b.getBlueprints());
+        this.idEvents = new Map();
+        for (const key in events) {
+            if (events[key] && typeof events[key] == 'function') {
+                this.idEvents.set(key, events[key])
+            }
         }
-        return {
-            name: this.name,
-            content: content,
-            attributes: this.attributes
-        }
-    }
-
-    afterRender(): void {
-        //xd
     }
 
     addClass(className: string): void {
@@ -53,6 +39,25 @@ export class Block {
 
     getName(): string {
         return this.name;
+    }
+
+    getBlueprints(): blockStructure {
+        let content;
+        if (typeof this.content == 'string') {
+            content = this.content;
+        } else {
+            content = this.content.map((b: Block) => b.getBlueprints());
+        }
+        return {
+            name: this.name,
+            content: content,
+            attributes: this.attributes,
+            idEvents: this.idEvents,
+        }
+    }
+    
+    getIdEvents():Map<string,()=>void> {
+        return this.idEvents
     }
 
     // setters

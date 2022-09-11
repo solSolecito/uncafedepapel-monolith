@@ -10,7 +10,6 @@ export class NavBar extends Block {
     //Una navbar de toda la vida
     constructor(toolList) {
         super('nav', [], { class: 'nav-bar' });
-        //Estos botones tienen hipervinculos
         const content = toolList.map((tool) => {
             return new NavListItem(tool.href, tool.name, tool.id, tool.class);
         });

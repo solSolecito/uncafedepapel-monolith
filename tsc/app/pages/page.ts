@@ -1,16 +1,24 @@
-import { attribute, Block } from '../blocks/block.js';
+import { Block, blockStructure } from '../blocks/block.js';
 
-export abstract class Page extends Block {
+export abstract class Page {
     constructor(
-        name: string,
-        content: Block[],
-        attributes: Map<string,string>,
+        private content: Block[],
         private title: string
-    ){
-        super( name, content, attributes );
-    }
-    addTitle():void{
+    ) { }
+
+    addTitle(): void {
         document.title = this.title;
     }
-    
+
+    // getters
+
+    getBlueprints(): blockStructure[] {
+        return this.content.map((block:Block) => { return block.getBlueprints()});
+    }
+
+    // setters
+
+     setContent(content: Block[]): void {
+        this.content = content;
+    }
 } 

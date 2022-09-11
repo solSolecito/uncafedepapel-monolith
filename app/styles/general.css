@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:3px;
+    border: 1px solid rgb(86, 69, 95);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-and-text {
+    display: flex;
+}
+
+.img-and-text img {
+    width:50%;
+}
+
+.img-and-text div {
+    width:50%;
+}
+/*.main-title {
+    width:50%
+} */

@@ -1,22 +1,36 @@
-import { attribute, Block, blockStructure } from '../blocks/block.js';
+import { Block, blockStructure } from '../blocks/block.js';
 import { Header } from '../blocks/header.js';
 import { Page } from './page.js';
-import { headerConstants } from '../utils/constants.js';
+import { announcementsConstants, headerConstants, welcomeConstants } from '../utils/constants.js';
+import { MainHome } from '../blocks/mainHome.js';
+import { ImgAndTextPost } from '../blocks/imgAndTextPost.js';
+import { Annoucements } from '../blocks/announcements.js';
 
 export class HomePage extends Page {
     constructor(
-        name: string,
-        attributes: Map<string,string>,
         title: string
     ){
-        super( name, [], attributes, title );
+        super( [], title );
         const content = [
             new Header( 
                 headerConstants.titleTaller,
                 headerConstants.img.src,
                 headerConstants.img.altText,
-                new Map()
-            )
+                headerConstants.toolList,
+                headerConstants.navItemList,
+                {}
+            ),
+            new Block('main',[
+                new ImgAndTextPost( 
+                    welcomeConstants.title,
+                    welcomeConstants.img,
+                    welcomeConstants.text
+                ),
+                new Annoucements(
+                    announcementsConstants.icon, [], [], [], []
+                ),
+                //new Gallery( ),
+            ])
         ];
         this.setContent(content)
     }

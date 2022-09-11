@@ -1,6 +1,6 @@
 // El router cambia el contenido de la vista según la URL
 import { HomePage } from '../app/pages/homePage.js';
-import { builder } from '../app/utils/builder.js';
+import { afterRender, builder } from '../app/utils/builder.js';
 export class Router {
     constructor() { }
     load(user) {
@@ -17,9 +17,9 @@ export class Router {
         if (user) {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
+                    const page = new HomePage('Inicio - Un Café de Papel');
                     page.addTitle();
-                    content = [page.getBlueprints()];
+                    content = page.getBlueprints();
                     console.log(content);
                     break;
                 default:
@@ -30,9 +30,9 @@ export class Router {
         else {
             switch (url) {
                 case '#/':
-                    const page = new HomePage('div', new Map(), 'Inicio - Un Café de Papel');
-                    content = [page.getBlueprints()];
+                    const page = new HomePage('Inicio - Un Café de Papel');
                     page.addTitle();
+                    content = page.getBlueprints();
                     break;
                 default:
                     window.location.assign('#/');
@@ -40,6 +40,7 @@ export class Router {
             }
         }
         builder(content, container);
+        afterRender(content);
     }
 }
 /*export const init = () => {

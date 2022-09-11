@@ -1,27 +1,13 @@
-import { attribute, Block, blockStructure } from './block.js';
-
-interface tool {
-  name:string;
-  id:string;
-  src:string;
-  class:string;
-  onclick:string;
-}
-
-class IconButton extends Block {
-  constructor( src:string, name:string, id:string, className:string = '' ){
-    super('button', [], { class: 'icon-btn', id, name });
-    this.setContent([new Block( 'img', '', { src })]);
-    this.addClass( className ) ;
-  }
-}
+import { toolInterface } from '../interfaces/toolInterface.js';
+import { IconButton } from './basics/iconButton.js';
+import { Block } from './block.js';
 
 export class ToolBar extends Block {
-  constructor( toolList:tool[] ){
+  constructor( toolList:toolInterface[] ){
     super('div', new Array(), { class: 'tool-bar'})
     //La tool bar es una barra de herramientas que consiste en botones con iconos. Estos botones abren un modal
-    const content = toolList.map( (tool:tool) => {
-      return new IconButton( tool.src, tool.name, tool.id, tool.class )
+    const content = toolList.map( (tool:toolInterface) => {
+      return new IconButton( tool.src, tool.name, tool.id, tool.class, tool.onclick )
     })
     this.setContent(content)
   }

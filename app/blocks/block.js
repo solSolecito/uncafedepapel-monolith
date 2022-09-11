@@ -1,5 +1,5 @@
 export class Block {
-    constructor(name, content, atts) {
+    constructor(name, content, atts = {}, events = {}) {
         this.name = name;
         this.content = content;
         this.attributes = new Map();
@@ -8,6 +8,21 @@ export class Block {
                 this.attributes.set(key, atts[key]);
             }
         }
+        this.idEvents = new Map();
+        for (const key in events) {
+            if (events[key] && typeof events[key] == 'function') {
+                this.idEvents.set(key, events[key]);
+            }
+        }
+    }
+    addClass(className) {
+        if (className) {
+            this.attributes.set('class', this.attributes.has('class') ? this.attributes.get('class') + className : className);
+        }
+    }
+    // getters
+    getName() {
+        return this.name;
     }
     getBlueprints() {
         let content;
@@ -20,20 +35,12 @@ export class Block {
         return {
             name: this.name,
             content: content,
-            attributes: this.attributes
+            attributes: this.attributes,
+            idEvents: this.idEvents,
         };
     }
-    afterRender() {
-        //xd
-    }
-    addClass(className) {
-        if (className) {
-            this.attributes.set('class', this.attributes.has('class') ? this.attributes.get('class') + className : className);
-        }
-    }
-    // getters
-    getName() {
-        return this.name;
+    getIdEvents() {
+        return this.idEvents;
     }
     // setters
     setContent(content) {

@@ -1,10 +1,17 @@
-import { Block } from '../blocks/block.js';
-export class Page extends Block {
-    constructor(name, content, attributes, title) {
-        super(name, content, attributes);
+export class Page {
+    constructor(content, title) {
+        this.content = content;
         this.title = title;
     }
     addTitle() {
         document.title = this.title;
+    }
+    // getters
+    getBlueprints() {
+        return this.content.map((block) => { return block.getBlueprints(); });
+    }
+    // setters
+    setContent(content) {
+        this.content = content;
     }
 }
