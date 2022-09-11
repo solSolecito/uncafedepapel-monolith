@@ -1,8 +1,7 @@
-import { Modal } from '../common/base/modal.js';
+import { Modal } from '../../common/base/modal.js';
 
-export const headerConstants = {
-    titleTaller: 'Un Taller de Papel',
-    titleCafe: 'Un Café de Papel',
+export const header = {
+    title: 'Un Taller de Papel',
     img: {
         src: 'app/assets/logoTaller_cl_120.png',
         altText: 'Logotipo Un Taller de Papel'
@@ -31,23 +30,27 @@ export const headerConstants = {
             class: 'nav',
         }
     ]
-}
+};
 
-export const welcomeConstants = {
-    title: 'Construimos un mundo de papel',
-    img: {
-        src: 'app/assets/logoTaller_cl_120.png',
-        altText: 'Logotipo Un Taller de Papel'
+export const home = {
+    welcome: {
+        title: 'Construimos un mundo en papel',
+        img: {
+            src: 'app/assets/logoTaller_cl_120.png',
+            altText: 'Logotipo Un Taller de Papel'
+        },
+        text: ['Esto es un parrafo pero ni idea de que escribirle']
+
     },
-    text: [
-        'p1',
-        'p2'
-    ]
+    news: {
+        icon: {
+            src: 'app/assets/logoTaller_cl_120.png',
+            altText: 'Logotipo Un Taller de Papel'
+        }
+    },
 }
 
-export const announcementsConstants = {
-    icon: {
-        src: 'app/assets/logoTaller_cl_120.png',
-        altText: 'Logotipo Un Taller de Papel'
-    }
-}
+export const footer = {
+
+};
+

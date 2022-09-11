@@ -1,4 +1,4 @@
-import { blockStructure } from '../blocks/block.js';
+import { blockStructure } from '../common/base/block.js';
 
 export const builder = (blocks: blockStructure[], parent: HTMLElement) => {
     // El builder se encarga de interpretar las instrucciones y construir los nodos necesarios

@@ -1,0 +1,16 @@
+import { ImgBlock } from './imgBlock.js';
+import { Block } from '../base/block.js';
+import { ParagraphBlock } from './paragraphBlock';
+export class ImgAndTextBlock extends Block {
+    constructor(img, text, inverted = false) {
+        super('div', [], { class: 'img-and-text' });
+        const content = [
+            new ImgBlock(img.src, img.altText),
+            new ParagraphBlock(text)
+        ];
+        if (inverted) {
+            content.reverse();
+        }
+        this.setContent(content);
+    }
+}

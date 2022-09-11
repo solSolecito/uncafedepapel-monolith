@@ -1,5 +1,5 @@
 // El router cambia el contenido de la vista según la URL
-import { HomePage } from '../app/pages/homePage.js';
+import { HomePage } from '../app/hola/pages/homePage.js';
 import { afterRender, builder } from '../app/utils/builder.js';
 export class Router {
     constructor() { }
